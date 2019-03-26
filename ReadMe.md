@@ -16,8 +16,8 @@
 **2.1.3) Activity Diagrams**<br><br>
 
 * Αυθεντικοποίηση χρήστη<br><br>
-![Sign In](/images/signIn.png)
+![Sign In](/images/signIn.png)<br>
 * Δημιουργία/Επιλογή διαδρομής<br><br>
-![trip](/images/createDrive.png)
+![trip](/images/createDrive.png)<br>
 * Αξιολόγηση<br><br>
-![rating](/images/rate.png)
+![rating](/images/rate.png)<br>
