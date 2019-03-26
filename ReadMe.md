@@ -18,6 +18,6 @@
 * Αυθεντικοποίηση χρήστη<br><br>
 ![Sign In](/images/signIn.png)<br>
 * Δημιουργία/Επιλογή διαδρομής<br><br>
-![trip](/images/createDrive.png)<br>
+![trip](/images/createDrive.png)<br><br>
 * Αξιολόγηση<br><br>
-![rating](/images/rate.png)<br>
+![rating](/images/rate.png)<br><br>
