@@ -28,5 +28,5 @@
 
 **2.2)  Μη Λειτουργικές απαιτήσεις**<br><br> 
 
-**2.1.3) Domain Model**<br><br>
+**2.3.1) Domain Model**<br><br>
 ![domain model](images/DomainModel.png)
