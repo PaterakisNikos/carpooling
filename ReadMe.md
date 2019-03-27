@@ -35,3 +35,7 @@
 
 **2.3.1) Domain Model**<br><br>
 ![domain model](images/DomainModel.png)
+
+
+**2.3.2) Sequence Diagram**<br><br>
+![sequence diagram](images/SequenceDiagram.png)
