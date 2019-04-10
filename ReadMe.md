@@ -6,7 +6,7 @@
 *Νικόλαος-Αριστοτέλης Πατεράκης 3160140*<br><br>
 
 **2.1.1) Use case diagram**<br><br>
-![Use case diagram](/images/Usecases2.png)
+![Use case diagram](images/Usecases2.png)
 
 <br><br>
 **2.1.2) Περιγραφή  περιπτώσεων  χρήσης** <br><br>
@@ -22,11 +22,13 @@
 
 
 * Αυθεντικοποίηση χρήστη<br><br>
-![Sign In](/images/Authetication.png)<br>
+![Sign In](images/Authetication.png)<br>
 * Δημιουργία/Επιλογή διαδρομής<br><br>
-![trip](/images/createDrive.png)<br><br>
+![trip](images/createDrive2.png)<br><br>
+* Δημιουργία αιτήματος/Εγγραφή χρήστη<br><br>
+![requet](images/RequestCreation.png)<br><br>
 * Αξιολόγηση<br><br>
-![rating](/images/rate.png)<br><br>
+![rating](images/rate2.png)<br><br>
 
 
 **2.2)  Μη Λειτουργικές απαιτήσεις**<br><br> 
