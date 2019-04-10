@@ -22,7 +22,7 @@
 
 
 * Αυθεντικοποίηση χρήστη<br><br>
-![Sign In](/images/Authecatiation.png)<br>
+![Sign In](/images/Authetication.png)<br>
 * Δημιουργία/Επιλογή διαδρομής<br><br>
 ![trip](/images/createDrive.png)<br><br>
 * Αξιολόγηση<br><br>
