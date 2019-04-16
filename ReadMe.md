@@ -21,11 +21,11 @@
 
 
 
-* Αυθεντικοποίηση χρήστη<br><br>
+* Αυθεντικοποίηση/Εγγραφή χρήστη<br><br>
 ![Sign In](images/Authetication.png)<br>
-* Δημιουργία/Επιλογή διαδρομής<br><br>
+* Γνωστοποιήση διαδρομής<br><br>
 ![trip](images/createDrive2.png)<br><br>
-* Δημιουργία αιτήματος/Εγγραφή χρήστη<br><br>
+* Δημιουργία αιτήματος συμετοχής στη διαδρομή<br><br>
 ![requet](images/RequestCreation.png)<br><br>
 * Αξιολόγηση<br><br>
 ![rating](images/rate2.png)<br><br>
