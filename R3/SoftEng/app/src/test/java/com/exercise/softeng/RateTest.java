@@ -16,9 +16,9 @@ public class RateTest {
         Passenger passenger=new Passenger("nick_pater", "pass");
         Rate rate=new Rate(passenger.getUsername(),driver.getUsername(), 5.0);
         assertTrue("Creation of rate must be succesfull when different usernames of Users are used and rating>=0.0",rate.creation_successfull());
-        assertEquals("Rater should be equals passenger.getUsername()", passenger.getUsername(), rate.who_makes_the_rate);
-        assertEquals("Rated should be equals driver.getUsername()", driver.getUsername(), rate.who_is_rating);
-        assertTrue("rating should be equals 5.0", 5.0==rate.rating);//Something with delta when using floating point numbers
+        assertEquals("Rater should be equals passenger.getUsername()", passenger.getUsername(), rate.getWho_makes_the_rate());
+        assertEquals("Rated should be equals driver.getUsername()", driver.getUsername(), rate.getWho_is_rating());
+        assertTrue("rating should be equals 5.0", 5.0==rate.getRating());//Something with delta when using floating point numbers
     }
 
     @Test

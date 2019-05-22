@@ -57,9 +57,9 @@ public class UserTest {
         Passenger passenger=new Passenger("bill", "pass");
         Rate rate=driver.create_rating(passenger.getUsername(), 5.0);
         assertTrue("Rate creation should be successfull", rate.creation_successfull());
-        assertEquals("Rater should be equals driver.getUsername()", driver.getUsername(), rate.who_makes_the_rate);
-        assertEquals("Rated should be equals passenger.getUsername()", passenger.getUsername(), rate.who_is_rating);
-        assertTrue("rating should be equals 5.0", 5.0==rate.rating);//Something with delta when using floating point numbers
+        assertEquals("Rater should be equals driver.getUsername()", driver.getUsername(), rate.getWho_makes_the_rate());
+        assertEquals("Rated should be equals passenger.getUsername()", passenger.getUsername(), rate.getWho_is_rating());
+        assertTrue("rating should be equals 5.0", 5.0==rate.getRating());//Something with delta when using floating point numbers
     }
 
     @Test

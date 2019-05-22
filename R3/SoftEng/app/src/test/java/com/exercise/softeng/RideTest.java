@@ -48,9 +48,9 @@ public class RideTest {
         Request req=new Request(new LatLng(38.049186, 23.835265),passenger.getUsername());
         ride.add_request(req);
         assertEquals("After an successfull add_request() to the ride the ride.aliveRequests() must be 1", 1,ride.get_aliveRequests());
-        for(int i=0;i<ride.requests.length;i++){
-            if(ride.requests[i]==null)break;
-            if(ride.requests[i].equals(req))return;
+        for(int i=0;i<ride.getRequests().length;i++){
+            if(ride.getRequests()[i]==null)break;
+            if(ride.getRequests()[i].equals(req))return;
         }
         fail("The add it request is not on the requests");
     }
@@ -66,9 +66,9 @@ public class RideTest {
         ride.add_request(req);
         ride.remove_request(passenger.getUsername());
         assertEquals("After an successfull remove_request() to the ride the ride.aliveRequests() must be 0", 0,ride.get_aliveRequests());
-        for(int i=0;i<ride.requests.length;i++){
-            if(ride.requests[i]==null) break;
-            if(ride.requests[i].equals(req)) fail("After a successfull remove_request() the ride request must not contains the req");
+        for(int i=0;i<ride.getRequests().length;i++){
+            if(ride.getRequests()[i]==null) break;
+            if(ride.getRequests()[i].equals(req)) fail("After a successfull remove_request() the ride request must not contains the req");
         }
     }
 

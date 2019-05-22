@@ -8,10 +8,15 @@ import com.google.android.gms.maps.model.LatLng;
 
 public class Request {
 
-    public static long next_id=1;
+    private static long next_id=1;
     public long request_id;
     public LatLng position;
-    public String passenger;//Username of the passenger
+
+    public String getPassenger() {
+        return passenger;
+    }
+
+    private String passenger;//Username of the passenger
 
     public Request(LatLng position, String passenger_username){
         if(!User.usernames.contains(passenger_username)||position==null)return;

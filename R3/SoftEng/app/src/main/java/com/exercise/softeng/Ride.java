@@ -7,11 +7,28 @@ package com.exercise.softeng;
  */
 
 public class Ride {
-    public RideInfo start;
-    public RideInfo end;
+    private RideInfo start;
+    private RideInfo end;
     public double price;
-    public String driver;//Username of the driver
-    public Request[] requests;
+    private String driver;//Username of the driver
+
+    public RideInfo getStart() {
+        return start;
+    }
+
+    public RideInfo getEnd() {
+        return end;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public Request[] getRequests() {
+        return requests;
+    }
+
+    private Request[] requests;
     private int current_requests;
 
     public Ride(RideInfo start, RideInfo end, double price, String driver_username, int how_many_passengers){
@@ -39,7 +56,7 @@ public class Ride {
 
     public boolean remove_request(String username){
         for(int i=0;i<current_requests;i++){
-            if(requests[i].passenger.equals(username)){
+            if(requests[i].getPassenger().equals(username)){
                 for (int j=i;j<requests.length-1;j++) requests[j]=requests[j+1];
                 current_requests--;
                 return true;

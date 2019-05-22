@@ -18,7 +18,7 @@ public class RequestTest {
         Request req=new Request(input_position, input_passenger.getUsername());
         assertTrue("Upon successfull creation of request req.creation_successfull must return true", req.creation_successfull());
         assertEquals("After successfull creation of request, req.posiotion should match input_position", input_position, req.position);
-        assertEquals("After successfull creation of request, req.passenger should match input_passenger.getUsername()", input_passenger.getUsername(), req.passenger);
+        assertEquals("After successfull creation of request, req.passenger should match input_passenger.getUsername()", input_passenger.getUsername(), req.getPassenger());
 
     }
 
