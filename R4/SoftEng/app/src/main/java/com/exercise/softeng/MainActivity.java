@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class MainActivity extends AppCompatActivity {
 
     //Static
@@ -72,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("username", name);
         startActivity(intent);
     }
-
 
 
     private void init(){

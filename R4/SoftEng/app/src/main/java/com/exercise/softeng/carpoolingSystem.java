@@ -1,7 +1,17 @@
 package com.exercise.softeng;
 
+import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
+import android.support.annotation.Nullable;
+
+import com.google.android.gms.maps.model.LatLng;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Vasilis on 5/22/2019.
@@ -46,6 +56,40 @@ public class carpoolingSystem {
     }
 
 
+    //Using Stack overflow answer: https://stackoverflow.com/questions/3574644/how-can-i-find-the-latitude-and-longitude-from-address
+    @Nullable
+    public static LatLng getCoordsFromAddress(Context context, String address){
+        Geocoder coder = new Geocoder(context);
+        List<Address> addresses;
+        try {
+            addresses = coder.getFromLocationName(address,5);
+            if (address==null) {
+                return null;
+            }
+            Address location=addresses.get(0);
+            return new LatLng(location.getLatitude(), location.getLongitude());
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    //Using Stack overflow answer: https://stackoverflow.com/questions/9409195/how-to-get-complete-address-from-latitude-and-longitude
+    @Nullable
+    public static String getAddressFromCoords(Context context, LatLng coords){
+        Geocoder geocoder;
+        List<Address> addresses;
+        geocoder = new Geocoder(context, Locale.getDefault());
+        try {
+            addresses = geocoder.getFromLocation(coords.latitude, coords.longitude, 1);
+            return addresses.get(0).getAddressLine(0);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
 }
