@@ -10,6 +10,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -23,21 +24,63 @@ public class carpoolingSystem {
     //TODO: ADD MORE DUMMIE DATA
     private static ArrayList<CreditCard>CCS=new ArrayList<CreditCard>(
             Arrays.asList(
-                    new CreditCard("Bill", "Mormor", "1845698312593263",1234),
-                    new CreditCard("Nick", "Pater", "6547299913451234", 4321)
+                    new CreditCard("Bill", "Mormor", "4077526441872843",1234),//0
+                    new CreditCard("Nick", "Pater", "9455387992929074", 4321),//1
+                    new CreditCard("Mike", "Skord", "2532000974276655", 5432),//2
+                    new CreditCard("Maria", "Mark", "0949959745067773", 2345),//3
+                    new CreditCard("Manol", "Mormor", "2130423046167705", 1345),//4
+                    new CreditCard("Manousos", "Manour", "2130423046167705", 5431)//5
             ));
 
     private static CreditCard[] bill_cc={CCS.get(0)};
     private static CreditCard[] nick_cc={CCS.get(1)};
+    private static CreditCard[] mike_cc={CCS.get(2)};
+    private static CreditCard[] maria_cc={CCS.get(3)};
+    private static CreditCard[] manol_cc={CCS.get(4)};
+    private static CreditCard[] manman_cc={CCS.get(5)};
 
     private static ArrayList<User>USERS=new ArrayList<User>(
             Arrays.asList(
-                new User("ElpsyCongroo", "pass", "Bill", "Mormor", bill_cc),
-                new User("NickP", "pass", "Nick", "pater", nick_cc)
+                new User("ElpsyCongroo", "pass", "Bill", "Mormor", bill_cc),//0
+                new User("NickP", "pass", "Nick", "pater", nick_cc),//1
+                new User("Mike", "pass", "Mike", "Skord", mike_cc),//2
+                new User("Maria", "pass", "Maria", "Mark", maria_cc),//3
+                new User("Manol", "pass", "Manol", "Mormor", manol_cc),//4
+                new User("manman", "pass", "Manousous", "Manour", manman_cc)//5
             ));
+
+    private static ArrayList<Ride>RIDES=new ArrayList<Ride>(
+            Arrays.asList(
+                new Ride(new RideInfo(true, new LatLng(38.0626628, 23.8444135), new Date((long)1559736000*(long)1000)), new RideInfo(false, new LatLng(37.9940805,23.7302467), new Date((long)1559738400*(long)1000)), 5.0, USERS.get(1).getUsername(), 3),//0
+                new Ride(new RideInfo(true, new LatLng(37.9940805,23.7302467), new Date((long)1559746800*(long)1000)), new RideInfo(false, new LatLng(38.0626628, 23.8444135), new Date((long)1559749200*(long)1000)), 5.0, USERS.get(1).getUsername(), 3),//1
+                new Ride(new RideInfo(true, new LatLng(38.0626628, 23.8444135), new Date((long)1558634400 *(long)1000)), new RideInfo(false, new LatLng(38.0277869, 23.7837358), new Date((long)1558635600*(long)1000)), 3.0, USERS.get(5).getUsername(), 2)//2
+            ));
+
     /*End of dummie data*/
 
+    public static void init(){
+        RIDES.get(2).add_request(new Request(new LatLng(38.0626628, 23.8444135), USERS.get(0).getUsername()));
+        RIDES.get(2).getRequests()[0].setState(Request.ACCEPTED_REQUEST);
+    }
 
+
+    public static Ride[] availableForPay(String passenger){
+        List<Ride>temp=new ArrayList<Ride>();
+        for(Ride ride: RIDES){
+            if(System.currentTimeMillis()>ride.getEnd().getTime().getTime()){
+                for(Request req: ride.getRequests()){
+                    if (req.getState()==Request.ACCEPTED_REQUEST&&req.getPassenger().equals(passenger)) temp.add(ride);
+                }
+                temp.add(ride);
+            }
+        }
+        Ride []data=new Ride[temp.size()];
+        int i=0;
+        for (Ride ride: temp){
+            data[i]=ride;
+        }
+        return data;
+    }
 
     /*
     *   Returns
@@ -91,5 +134,15 @@ public class carpoolingSystem {
         return null;
     }
 
-
+    //TODO IMPLEMENT THIS FUNCTION
+    // ------NOT IMPLEMENTED YET------
+    public static Ride[] getAvailiableRides(String passenger) {
+        Ride[] rides=new Ride[RIDES.size()];
+        int i=0;
+        for(Ride ride: RIDES) {
+            rides[i]=(ride);
+            i++;
+        }
+        return rides;
+    }
 }

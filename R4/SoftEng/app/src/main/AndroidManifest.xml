@@ -19,7 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".SearchRideActivity" />
+        <activity android:name=".RequestEmbarkationActivity" />
+        <activity android:name=".PayRideActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ride_layout_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ff424242"
+    android:gravity="end"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layout_start_wrapper"
+        android:background="#ff757575"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+    <!--android:background="@drawable/layout_border"-->
+
+        <TextView
+            android:id="@+id/lbl_from"
+            android:layout_width="80sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:text="From:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lbl_start_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="data"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_end_wrapper"
+        android:background="#ff757575"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+        <!--android:background="@drawable/layout_border"-->
+
+        <TextView
+            android:id="@+id/lbl_to"
+            android:layout_width="80sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:text="To:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lbl_end_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="data"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_driver_wrapper"
+        android:background="#ff757575"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+        <!--android:background="@drawable/layout_border"-->
+
+        <TextView
+            android:id="@+id/lbl_driver"
+            android:layout_width="80sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center_horizontal"
+            android:text="Driver:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/lbl_driver_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="data"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/req_stat_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:srcCompat="@drawable/ic_reqstate_default">
+
+    </ImageView>
+
+</LinearLayout>

@@ -31,6 +31,7 @@
             android:id="@+id/btn_searchRide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="START_SEARCH_ACTIVITY"
             android:padding="5dp"
             android:text="SEARCH RIDE" />
 

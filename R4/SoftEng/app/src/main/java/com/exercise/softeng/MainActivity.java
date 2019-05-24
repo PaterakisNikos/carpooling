@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         //get a reference to views
         username=(EditText)findViewById(R.id.editText_username);
         password=(EditText)findViewById(R.id.editText_pass);
+        carpoolingSystem.init();
     }
 
 }

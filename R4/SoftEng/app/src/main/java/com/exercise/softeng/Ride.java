@@ -2,6 +2,10 @@ package com.exercise.softeng;
 
 
 
+
+
+import java.util.ArrayList;
+
 /**
  * Created by Vasilis on 4/18/2019.
  */
@@ -24,11 +28,19 @@ public class Ride {
         return driver;
     }
 
+    private int capasity;
+
     public Request[] getRequests() {
-        return requests;
+        Request[] data=new Request[requests.size()];
+        int i=0;
+        for(Request req: requests){
+            data[i]=req;
+            i++;
+        }
+        return data;
     }
 
-    private Request[] requests;
+    private ArrayList<Request> requests;
     private int current_requests;
 
     public Ride(RideInfo start, RideInfo end, double price, String driver_username, int how_many_passengers){
@@ -39,31 +51,25 @@ public class Ride {
         this.end=end;
         this.price=price;
         driver=driver_username;
-        requests=new Request[how_many_passengers];
+        requests=new ArrayList<Request>();
         current_requests=0;
+        capasity=how_many_passengers;
     }
 
     public boolean creation_successfull(){return driver!=null;}
 
     public boolean add_request(Request req){
-        if (current_requests!=requests.length){
-            requests[current_requests]=req;
-            current_requests++;
+        if (current_requests!=capasity){
+            requests.add(req);
             return true;
         }
         return false;
     }
 
-    public boolean remove_request(String username){
-        for(int i=0;i<current_requests;i++){
-            if(requests[i].getPassenger().equals(username)){
-                for (int j=i;j<requests.length-1;j++) requests[j]=requests[j+1];
-                current_requests--;
-                return true;
-            }
-        }
-        return false;
-    }
 
-    public int get_aliveRequests(){return current_requests;}
+
+
+
+
+
 }
