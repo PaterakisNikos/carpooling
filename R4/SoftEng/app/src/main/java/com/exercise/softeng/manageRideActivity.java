@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 
-public class manageRideActivity extends AppCompatActivity {
+public class manageRideActivity extends AppCompatActivity implements RenderListener{
 
     //Statics
 
@@ -42,12 +40,12 @@ public class manageRideActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(manageRideActivity.this, requestManagment.class);
+                Intent intent = new Intent(manageRideActivity.this, ManageRequestsActivity.class);
                 /*
                  * Add variables you want to pass to the new activity if any
                  *       using intent.putExtra(key, value)
                  * */
-                intent.putExtra("rideIndex", "" + i);
+                intent.putExtra("rideIndex", "" + rides[i].ID);
                 startActivity(intent);
                 //finish();//Finish this activity we want to rendered after an Embarkation Request
             }
@@ -64,4 +62,8 @@ public class manageRideActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void re_render() {
+        updateList();
+    }
 }

@@ -1,9 +1,6 @@
 package com.exercise.softeng;
 
 
-
-
-
 import java.util.ArrayList;
 
 /**
@@ -11,6 +8,8 @@ import java.util.ArrayList;
  */
 
 public class Ride {
+
+    private static  int next_id=0;
     private RideInfo start;
     private RideInfo end;
     public double price;
@@ -30,6 +29,8 @@ public class Ride {
 
     private int capasity;
 
+    public final int ID;
+
     public Request[] getRequests() {
         Request[] data=new Request[requests.size()];
         int i=0;
@@ -44,9 +45,18 @@ public class Ride {
     private int current_requests;
 
     public Ride(RideInfo start, RideInfo end, double price, String driver_username, int how_many_passengers){
-        if(how_many_passengers<=0)return;
-        if(!(User.getUsernames().contains(driver_username)))return;
-        if(price<=0.0)return;
+        if(how_many_passengers<=0){
+            ID=-1;
+            return;
+        }
+        if(!(User.getUsernames().contains(driver_username))){
+            ID=-1;
+            return;
+        }
+        if(price<=0.0){
+            ID=-1;
+            return;
+        }
         this.start=start;
         this.end=end;
         this.price=price;
@@ -54,6 +64,8 @@ public class Ride {
         requests=new ArrayList<Request>();
         current_requests=0;
         capasity=how_many_passengers;
+        ID=next_id;
+        next_id++;
     }
 
     public boolean creation_successfull(){return driver!=null;}

@@ -20,21 +20,20 @@
             </intent-filter>
         </activity>
         <activity android:name=".MenuActivity" />
-        <activity android:name=".SearchRideActivity"
+        <activity
+            android:name=".SearchRideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity android:name=".RequestEmbarkationActivity" />
-        <activity android:name=".PayRideActivity"
-        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-        android:screenOrientation="portrait">
-
-    </activity>
-
-        <activity android:name=".manageRideActivity"
+        <activity
+            android:name=".PayRideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait">
-        </activity>
-
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".manageRideActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".ManageRequestsActivity"></activity>
     </application>
 
 </manifest>

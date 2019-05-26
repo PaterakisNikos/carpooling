@@ -50,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, EMPTY_PASS_FIELD, Toast.LENGTH_SHORT).show();
             return;
         }
-
         //Fields are filled proceed with SIGN IN logic.
         int code= carpoolingSystem.logUser(name, pass);
         if(code!=2){
