@@ -1,5 +1,6 @@
 package com.exercise.softeng;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -17,10 +19,15 @@ public class ManageAdapter extends ArrayAdapter<Ride> {
 
     private String driver;
 
+
     ManageAdapter(Context context, Ride[] rides, String driver){
         super(context, R.layout.manage_row, rides);
         this.driver=driver;
     }
+
+    RenderListener executor;
+
+    public void attachListner(Activity activity){ executor=(RenderListener)activity; }
 
     @NonNull
     @Override
@@ -29,7 +36,14 @@ public class ManageAdapter extends ArrayAdapter<Ride> {
         View customView=layoutInflater.inflate(R.layout.manage_row, parent, false);
         Ride ride=getItem(position);
         TextView start=customView.findViewById(R.id.lbl_data);
+        ImageView img_view=customView.findViewById(R.id.imageView_reqNotification);
         start.setText(humanReadableDate(ride.getStart().getTime()));
+        for(Request req: ride.getRequests()){
+            if(req.getState()==Request.PENDING_REQUEST) {
+                img_view.setImageResource(ImageResources.QUESTION_MARK);
+                break;
+            }
+        }
         return customView;
     }
 

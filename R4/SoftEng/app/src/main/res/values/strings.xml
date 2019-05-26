@@ -17,4 +17,5 @@
     <string name="text_REJECT">REJECT</string>
     <string name="ic_description_SEARCH_RIDE">Specifying the request state for a particular ride</string>
     <string name="ic_description_PAY_RIDE">Specifying the paying state for a particular ride</string>
+    <string name="ic_description_MANAGE_RIDE">Specifying the requests state for driver</string>
 </resources>

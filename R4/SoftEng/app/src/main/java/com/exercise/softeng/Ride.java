@@ -67,6 +67,17 @@ public class Ride {
     }
 
 
+    public void proccesRequest(int req_index, boolean accept){
+        Request req= requests.get(req_index);
+        if(accept){
+            req.setState(Request.ACCEPTED_REQUEST);
+            current_requests++;
+        }
+        else
+            req.setState(Request.DECLINED_REQUEST);
+    }
+
+
 
 
 

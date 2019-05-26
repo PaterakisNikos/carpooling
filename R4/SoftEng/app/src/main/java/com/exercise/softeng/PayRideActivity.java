@@ -3,11 +3,10 @@ package com.exercise.softeng;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ListView;
-import android.widget.Toast;
 
-public class PayRideActivity extends AppCompatActivity implements PayAdapter.RenderListener {
+
+public class PayRideActivity extends AppCompatActivity implements RenderListener {
 
     //Statics
     public static final String TAG="PayRideActivity: ";

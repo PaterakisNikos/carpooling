@@ -2,6 +2,7 @@ package com.exercise.softeng;
 
 import android.app.Activity;
 import android.content.Context;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class PayAdapter extends ArrayAdapter<Ride> {
 
-    private static int[] image_rezouces={R.drawable.ic_reqstate_accepted, R.drawable.ic_reqstate_declined, R.drawable.ic_reqstate_pending};
+    //private static int[] image_rezouces={R.drawable.ic_reqstate_accepted, R.drawable.ic_reqstate_declined, R.drawable.ic_reqstate_pending};
 
     private String passenger;
     private List<Object[]>passenger_payments;
@@ -53,17 +54,15 @@ public class PayAdapter extends ArrayAdapter<Ride> {
         pay=(Button)customView.findViewById(R.id.btn_acceptpay);
         reject=(Button)customView.findViewById(R.id.btn_rejectpay);
         ImageView pay_state=(ImageView)customView.findViewById(R.id.pay_state_imageview);
-        pay_state.setImageResource(image_rezouces[2]);
+        pay_state.setImageResource(ImageResources.QUESTION_MARK);
         for (Object[] payment: passenger_payments){
             double pay_ammount=(double)payment[1];
             Ride assosiated= carpoolingSystem.getRide((int)payment[0]);
             if(assosiated.getDriver().equals(current.getDriver())&&assosiated.getStart().getTime().getTime()==current.getStart().getTime().getTime()){
-                if(pay_ammount==0.0){
-                    pay_state.setImageResource(image_rezouces[1]);
-                }
-                else{
-                    pay_state.setImageResource(image_rezouces[0]);
-                }
+                if(pay_ammount==0.0)
+                    pay_state.setImageResource(ImageResources.CROSS);
+                else
+                    pay_state.setImageResource(ImageResources.CHECK);
                 pay.setEnabled(false);
                 reject.setEnabled(false);
                 return customView;
@@ -93,11 +92,6 @@ public class PayAdapter extends ArrayAdapter<Ride> {
     public void attachRenderListener(Activity activity){
         executor=(RenderListener)activity;
     }
-
-    public interface RenderListener{
-        public void re_render();
-    }
-
 
 
 }

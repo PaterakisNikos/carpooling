@@ -20,6 +20,5 @@ public class requestManagment extends AppCompatActivity {
         Intent intent=getIntent();
         ride=intent.getStringExtra("ride");
         index=Integer.parseInt(intent.getStringExtra("rideIndex"));
-
     }
 }

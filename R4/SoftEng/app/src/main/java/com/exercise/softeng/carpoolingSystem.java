@@ -156,7 +156,7 @@ public class carpoolingSystem {
     }
 
     //TODO ADD CHECKS TO SEE IF RIDE IS FULL OF REQUESTS
-    // ------NOT IMPLEMENTED YET------
+    // ------NOT FULLY IMPLEMENTED YET------
     public static Ride[] getAvailiableRides(String passenger) {
         List<Ride> temp=new ArrayList<Ride>();
         for (Ride ride: RIDES){
@@ -170,6 +170,20 @@ public class carpoolingSystem {
         }
         return data;
     }
+
+
+    public static Ride[] getOwnedRides(String driver){
+        List<Ride>temp=new ArrayList<Ride>();
+        for(Ride ride: RIDES){
+            if(ride.getStart().getTime().getTime()>System.currentTimeMillis()&&ride.getDriver().equals(driver))
+                temp.add(ride);
+        }
+        Ride[]data=new Ride[temp.size()];
+        for (int i =0; i< data.length;i++)
+            data[i]=temp.get(i);
+        return data;
+    }
+
 
     public static void PAY(String passenger, Ride ride, double cost){
         Object[] data=new Object[3];

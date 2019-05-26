@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/row_wrapper"
-    android:gravity="end">
+    android:gravity="center">
 
     <LinearLayout
         android:id="@+id/layout_start"
@@ -30,6 +32,15 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:textSize="20sp"
+            />
+
+        <ImageView
+            android:id="@+id/imageView_reqNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/ic_description_MANAGE_RIDE"
+            app:srcCompat="@drawable/ic_reqstate_accepted"
             />
 
     </LinearLayout>

@@ -24,7 +24,7 @@ import java.util.TimeZone;
 public class RideAdapter extends ArrayAdapter<Ride>{
 
     private String passenger;
-    private int image_resources[]={R.drawable.ic_reqstate_pending, R.drawable.ic_reqstate_accepted, R.drawable.ic_reqstate_declined, R.drawable.ic_reqstate_default};
+    //private int image_resources[]={R.drawable.ic_reqstate_pending, R.drawable.ic_reqstate_accepted, R.drawable.ic_reqstate_declined, R.drawable.ic_reqstate_default};
 
     public RideAdapter(@NonNull Context context, Ride[] rides, String passenger){
         super(context, R.layout.ride_row, rides);
@@ -51,8 +51,20 @@ public class RideAdapter extends ArrayAdapter<Ride>{
         ImageView state=(ImageView)customView.findViewById(R.id.req_stat_imageview);
         for(Request req: current.getRequests()){
             if(req.getPassenger().equals(passenger)){
-                state.setImageResource(image_resources[req.getState()]);
-                return customView;
+                switch (req.getState()){
+                    case Request.ACCEPTED_REQUEST:
+                        state.setImageResource(ImageResources.CHECK);
+                        break;
+                    case Request.PENDING_REQUEST:
+                        state.setImageResource(ImageResources.QUESTION_MARK);
+                        break;
+                    case Request.DECLINED_REQUEST:
+                        state.setImageResource(ImageResources.CROSS);
+                        break;
+                    default:
+                        state.setImageResource(ImageResources.PLUS_SIGN);
+                        break;
+                }
             }
         }
         return customView;

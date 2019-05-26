@@ -32,7 +32,7 @@ public class manageRideActivity extends AppCompatActivity {
         listView = findViewById(R.id.listView);
 
 
-        rides=carpoolingSystem.getAvailiableRides("");
+        rides=carpoolingSystem.getOwnedRides(username);
         //ArrayAdapter<Ride> adapter = new ArrayAdapter<Ride>(this, android.R.layout.simple_list_item_1, ride);
 
         //listView.setAdapter(adapter);
@@ -59,6 +59,7 @@ public class manageRideActivity extends AppCompatActivity {
 
     private void updateList(){
         ManageAdapter adapter=new ManageAdapter(this, rides, username);
+        adapter.attachListner(this);
         listView.setAdapter(adapter);
     }
 
