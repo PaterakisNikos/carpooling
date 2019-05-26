@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.Address;
 import android.location.Geocoder;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -56,11 +57,30 @@ public class carpoolingSystem {
                 new Ride(new RideInfo(true, new LatLng(38.0626628, 23.8444135), new Date((long)1558634400 *(long)1000)), new RideInfo(false, new LatLng(38.0277869, 23.7837358), new Date((long)1558635600*(long)1000)), 3.0, USERS.get(5).getUsername(), 2)//2
             ));
 
+
+
+
+
+    private static ArrayList<Object[]>PAYMENTS=new ArrayList<Object[]>();
+
     /*End of dummie data*/
+
+    public static Ride getRide(int index){return RIDES.get(index);}
 
     public static void init(){
         RIDES.get(2).add_request(new Request(new LatLng(38.0626628, 23.8444135), USERS.get(0).getUsername()));
         RIDES.get(2).getRequests()[0].setState(Request.ACCEPTED_REQUEST);
+        //PAY(USERS.get(0).getUsername(), getRide(2), 1.5);
+    }
+
+
+    public static List<Object[]> getPayments(String passenger){
+        List<Object[]> temp=new ArrayList<Object[]>();
+        for (Object[] objects: PAYMENTS){
+            Log.i(PayRideActivity.TAG, (String)objects[2]+"?="+passenger);
+            if(((String)objects[2]).equals(passenger)) temp.add(objects);
+        }
+        return temp;
     }
 
 
@@ -68,16 +88,17 @@ public class carpoolingSystem {
         List<Ride>temp=new ArrayList<Ride>();
         for(Ride ride: RIDES){
             if(System.currentTimeMillis()>ride.getEnd().getTime().getTime()){
-                for(Request req: ride.getRequests()){
-                    if (req.getState()==Request.ACCEPTED_REQUEST&&req.getPassenger().equals(passenger)) temp.add(ride);
+                for(Request req: ride.getRequests()) {
+                    if (req.getState() == Request.ACCEPTED_REQUEST && req.getPassenger().equals(passenger))
+                        temp.add(ride);
                 }
-                temp.add(ride);
             }
         }
         Ride []data=new Ride[temp.size()];
         int i=0;
         for (Ride ride: temp){
             data[i]=ride;
+            i++;
         }
         return data;
     }
@@ -134,15 +155,38 @@ public class carpoolingSystem {
         return null;
     }
 
-    //TODO IMPLEMENT THIS FUNCTION
+    //TODO ADD CHECKS TO SEE IF RIDE IS FULL OF REQUESTS
     // ------NOT IMPLEMENTED YET------
     public static Ride[] getAvailiableRides(String passenger) {
-        Ride[] rides=new Ride[RIDES.size()];
+        List<Ride> temp=new ArrayList<Ride>();
+        for (Ride ride: RIDES){
+            if(ride.getStart().getTime().getTime()>System.currentTimeMillis()&&!ride.getDriver().equals(passenger)) temp.add(ride);
+        }
+        Ride[] data=new Ride[temp.size()];
         int i=0;
-        for(Ride ride: RIDES) {
-            rides[i]=(ride);
+        for(Ride ride: temp){
+            data[i]=ride;
             i++;
         }
-        return rides;
+        return data;
     }
+
+    public static void PAY(String passenger, Ride ride, double cost){
+        Object[] data=new Object[3];
+        data[0]=indexOfRide(ride);
+        data[1]=cost;
+        data[2]=passenger;
+        PAYMENTS.add(data);
+    }
+
+    private static int indexOfRide(Ride ride){
+        int i=0;
+        for(Ride r: RIDES){
+            if(r.getStart().getTime().getTime()==ride.getStart().getTime().getTime()&&ride.getDriver().equals(r.getDriver())) return i;
+            i++;
+        }
+        return -1;
+    }
+
+    public static int PAYMENTS_LENGTH(){return PAYMENTS.size();}
 }

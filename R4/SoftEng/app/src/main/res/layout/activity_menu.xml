@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="MANAGE RIDE" />
+            android:text="@string/text_MANAGE_RIDE" />
 
         <Button
             android:id="@+id/btn_searchRide"
@@ -33,21 +33,22 @@
             android:layout_height="wrap_content"
             android:onClick="START_SEARCH_ACTIVITY"
             android:padding="5dp"
-            android:text="SEARCH RIDE" />
+            android:text="@string/text_SEARCH_RIDE" />
 
         <Button
             android:id="@+id/btn_payRide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="START_PAY_ACTIVITY"
             android:padding="5dp"
-            android:text="PAY RIDE" />
+            android:text="@string/text_PAY_RIDE" />
 
         <Button
             android:id="@+id/btn_rate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="RATE" />
+            android:text="@string/text_RATE" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

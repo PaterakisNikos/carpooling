@@ -1,92 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/ride_layout_wrapper"
+    android:id="@+id/payride_layout_wrapper"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/row_wrapper"
-    android:gravity="end"
-    android:orientation="vertical"
-    >
+    android:gravity="end">
 
     <LinearLayout
-        android:id="@+id/layout_start_wrapper"
+        android:id="@+id/layout_paying"
         android:background="@drawable/row_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
-        android:orientation="horizontal"
-        android:elevation="5dp">
-    <!--android:background="@drawable/layout_border"-->
-
-        <TextView
-            android:id="@+id/lbl_from"
-            android:layout_width="80sp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="@string/text_FROM"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/lbl_start_data"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_end_wrapper"
-        android:background="@drawable/row_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:elevation="5dp">
-        <!--android:background="@drawable/layout_border"-->
-
-        <TextView
-            android:id="@+id/lbl_to"
-            android:layout_width="80sp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:text="@string/text_TO"
-            android:textSize="20sp" />
-
-        <TextView
-            android:id="@+id/lbl_end_data"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout_driver_wrapper"
-        android:background="@drawable/row_content"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginStart="10dp"
-        android:gravity="center"
         android:orientation="horizontal"
         android:elevation="5dp">
-        <!--android:background="@drawable/layout_border"-->
 
         <TextView
-            android:id="@+id/lbl_driver"
+            android:id="@+id/lbl_paying"
             android:layout_width="80sp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -95,7 +29,39 @@
             android:textSize="20sp" />
 
         <TextView
-            android:id="@+id/lbl_driver_data"
+        android:id="@+id/lbl_paying_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:textSize="20sp" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout_cost"
+        android:background="@drawable/row_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:orientation="horizontal"
+        android:elevation="5dp">
+
+        <TextView
+            android:id="@+id/lbl_cost"
+            android:layout_width="80sp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:gravity="center"
+            android:text="@string/text_COST"
+            android:textSize="20sp" />
+
+
+        <TextView
+            android:id="@+id/lbl_cost_data"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -103,15 +69,53 @@
             android:gravity="center"
             android:textSize="20sp" />
 
-        <ImageView
-            android:id="@+id/req_stat_imageview"
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_buttons"
+        android:gravity="center"
+        android:background="@drawable/row_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
+        android:orientation="horizontal"
+        android:elevation="5dp">
+
+
+        <Button
+            android:id="@+id/btn_acceptpay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:contentDescription="@string/ic_description_SEARCH_RIDE"
-            app:srcCompat="@drawable/ic_reqstate_default">
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:text="@string/text_PAY" />
+
+        <Button
+            android:id="@+id/btn_rejectpay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_REJECT" />
+
+        <ImageView
+            android:id="@+id/pay_state_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:contentDescription="@string/ic_description_PAY_RIDE"
+            app:srcCompat="@drawable/ic_reqstate_pending">
 
         </ImageView>
+
 
     </LinearLayout>
 

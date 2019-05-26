@@ -1,13 +1,11 @@
 package com.exercise.softeng;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class SearchRideActivity extends AppCompatActivity {
 
@@ -32,7 +30,6 @@ public class SearchRideActivity extends AppCompatActivity {
         Intent intent=getIntent();
         passenger=intent.getStringExtra("passenger");
         rides_wrapper=(ListView)findViewById(R.id.listview_rides_wrapper);
-        Toast.makeText(this, passenger, Toast.LENGTH_SHORT).show();
         updateList();
         rides_wrapper.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -45,15 +42,14 @@ public class SearchRideActivity extends AppCompatActivity {
                 intent.putExtra("passenger", passenger);
                 intent.putExtra("rideIndex", ""+i);
                 startActivity(intent);
-                finish();//Finish this activity we want to rendered after an Embarkation Request
+                finish();//Finish this activity we want to re-render after an Embarkation Request
             }
         });
     }
 
 
     public void updateList(){
-        available_rides=carpoolingSystem.getAvailiableRides(passenger);
-        Log.i(TAG, "Rides length: "+available_rides.length);
+        available_rides= carpoolingSystem.getAvailiableRides(passenger);
         RideAdapter adapter=new RideAdapter(this, available_rides, passenger);
         rides_wrapper.setAdapter(adapter);
     }

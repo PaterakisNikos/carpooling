@@ -1,4 +1,19 @@
 <resources>
-    <string name="app_name">Carpooling</string>
+    <string name="app_name">SoftEng</string>
     <string name="new_ride">New Ride</string>
+    <string name="username_hint">Enter your username</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="text_SIGN_IN">SIGN IN</string>
+    <string name="text_MANAGE_RIDE">MANAGE RIDE</string>
+    <string name="text_SEARCH_RIDE">SEARCH RIDE</string>
+    <string name="text_PAY_RIDE">PAY RIDE</string>
+    <string name="text_RATE">RATE</string>
+    <string name="text_FROM">From:</string>
+    <string name="text_TO">To:</string>
+    <string name="text_DRIVER">Driver:</string>
+    <string name="text_COST">Cost:</string>
+    <string name="text_PAY">PAY</string>
+    <string name="text_REJECT">REJECT</string>
+    <string name="ic_description_SEARCH_RIDE">Specifying the request state for a particular ride</string>
+    <string name="ic_description_PAY_RIDE">Specifying the paying state for a particular ride</string>
 </resources>

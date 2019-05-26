@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:hint="Enter your username"
+            android:hint="@string/username_hint"
             android:gravity="center_horizontal"
              />
 
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:ems="10"
-            android:hint="Enter your password"
+            android:hint="@string/password_hint"
             android:gravity="center_horizontal"
             android:inputType="textPassword" />
 
@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:onClick="SIGN_IN"
-            android:text="SIGN IN" />
+            android:text="@string/text_SIGN_IN" />
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

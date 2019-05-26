@@ -1,8 +1,8 @@
 package com.exercise.softeng;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -31,21 +31,21 @@ public class RequestEmbarkationActivity extends AppCompatActivity {
         Intent intent=getIntent();
         passenger=intent.getStringExtra("passenger");
         int index=Integer.parseInt(intent.getStringExtra("rideIndex"));
-        ride=carpoolingSystem.getAvailiableRides(passenger)[index];
+        ride= carpoolingSystem.getAvailiableRides(passenger)[index];
         address=(EditText)findViewById(R.id.editText_embarkation);
     }
 
 
     public void CREATE_REQUEST(View view){
-        String address_value=address.getText().toString();
+        String address_value=address.getText().toString();//@NotNull
         if(address_value.equals("")){
             Toast.makeText(this, "Enter the desired address", Toast.LENGTH_SHORT).show();
             return;
         }
-        LatLng coords=carpoolingSystem.getCoordsFromAddress(this, address_value);
+        LatLng coords= carpoolingSystem.getCoordsFromAddress(this, address_value);
         Request new_req=new Request(coords, passenger);
         if(!new_req.creation_successfull()){
-            Toast.makeText(this, "Request creation failed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Request creation failed!", Toast.LENGTH_SHORT).show();
             return;
         }
         ride.add_request(new_req);
@@ -53,7 +53,7 @@ public class RequestEmbarkationActivity extends AppCompatActivity {
     }
 
 
-    //Use this function for going back and rendering previous activity
+    //Use this function for going back and re-render previous activity(SearchRideActivity)
     private void go_back(){
         Intent intent=new Intent(this, SearchRideActivity.class);
         /*
@@ -66,7 +66,7 @@ public class RequestEmbarkationActivity extends AppCompatActivity {
     }
 
 
-    //Overriding back functionality because previous activity call finish()
+    //Overriding back functionality because previous activity call finish() and we want to re-render it
     @Override
     public void onBackPressed(){
         go_back();

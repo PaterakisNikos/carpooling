@@ -5,7 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 /**
  * Created by Vasilis on 4/18/2019.
  */
-public class Passenger extends User{
+public class Passenger extends User {
 
 	public Passenger(String username, String password) {
 		this(username, password, null, null, null);

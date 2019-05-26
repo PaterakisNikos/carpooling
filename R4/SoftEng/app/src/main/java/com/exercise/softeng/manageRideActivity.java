@@ -6,13 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-
-import static com.exercise.softeng.carpoolingSystem.init;
 
 public class manageRideActivity extends AppCompatActivity {
 

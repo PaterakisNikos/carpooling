@@ -12,8 +12,6 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
 
-
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -64,12 +62,27 @@ public class RideAdapter extends ArrayAdapter<Ride>{
     private String humanReadableDate(Date date){
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Athens"));
         cal.setTime(date);
-        String data=""+cal.get(Calendar.DAY_OF_MONTH)+"-"+(cal.get(Calendar.MONTH)+1)+"-"+cal.get(Calendar.YEAR)+" "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE);
+        String data="";
+        int month=(cal.get(Calendar.MONTH)+1);
+        int day=(cal.get(Calendar.DAY_OF_MONTH)+1);
+        int hour=(cal.get(Calendar.HOUR_OF_DAY));
+        int minutes=(cal.get(Calendar.MINUTE));
+        if(day<10)data+="0"+day+"-";
+        else data+=day+"-";
+        if(month<10)data+="0"+month+"-";
+        else data+=month+"-";
+        data+=cal.get(Calendar.YEAR)+" ";
+        if(hour<10)data+="0"+hour+":";
+        else data+=hour+":";
+        if(minutes<10)data+="0"+minutes;
+        else data+=minutes;
         return data;
     }
 
+
+    //Don't know if it works well for addresses outside of GREECE
     private  String humanReadableAddress(LatLng coords){
-        String address=carpoolingSystem.getAddressFromCoords(getContext(),coords);
+        String address= carpoolingSystem.getAddressFromCoords(getContext(),coords);
         String data=address.substring(0, address.indexOf(','));
         data+=address.substring(address.indexOf(','), address.indexOf(' ', address.indexOf(',')+2));
         return data;
