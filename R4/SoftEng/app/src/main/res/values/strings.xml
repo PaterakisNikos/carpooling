@@ -9,6 +9,7 @@
     <string name="text_PAY_RIDE">PAY RIDE</string>
     <string name="text_RATE">RATE</string>
     <string name="text_FROM">From:</string>
+    <string name="text_START">Start:</string>
     <string name="text_TO">To:</string>
     <string name="text_DRIVER">Driver:</string>
     <string name="text_COST">Cost:</string>

@@ -25,10 +25,16 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".RequestEmbarkationActivity" />
         <activity android:name=".PayRideActivity"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:screenOrientation="portrait">
+
+    </activity>
+
+        <activity android:name=".manageRideActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait">
-
         </activity>
+
     </application>
 
 </manifest>

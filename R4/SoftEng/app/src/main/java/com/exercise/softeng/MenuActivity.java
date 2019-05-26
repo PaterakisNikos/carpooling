@@ -49,4 +49,14 @@ public class MenuActivity extends AppCompatActivity {
         intent.putExtra("passenger", username);
         startActivity(intent);
     }
+
+    public void START_MANAGE_RIDE(View view){
+        Intent intent=new Intent(this, manageRideActivity.class);
+        /*
+         * Add variables you want to pass to the new activity if any
+         *       using intent.putExtra(key, value)
+         * */
+        intent.putExtra("username", username);
+        startActivity(intent);
+    }
 }

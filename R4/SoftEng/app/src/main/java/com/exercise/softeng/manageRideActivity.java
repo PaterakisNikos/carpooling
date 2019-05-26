@@ -12,20 +12,32 @@ import java.util.ArrayList;
 
 public class manageRideActivity extends AppCompatActivity {
 
+    //Statics
+
+    //Widgets && Views
+    ListView listView;
+
+    //Variables
     private String username;
+    private Ride[] rides;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_ride);
-        ListView listView = findViewById(R.id.listView);
 
-        final ArrayList<Ride> ride = new ArrayList<>();
-        for (Ride r : carpoolingSystem.getAvailiableRides("")) {
-            ride.add(r);
-        }
-        ArrayAdapter<Ride> adapter = new ArrayAdapter<Ride>(this, android.R.layout.simple_list_item_1, ride);
-        listView.setAdapter(adapter);
+        Intent intent=getIntent();
+        username = intent.getStringExtra("username");
+
+        listView = findViewById(R.id.listView);
+
+
+        rides=carpoolingSystem.getAvailiableRides("");
+        //ArrayAdapter<Ride> adapter = new ArrayAdapter<Ride>(this, android.R.layout.simple_list_item_1, ride);
+
+        //listView.setAdapter(adapter);
+
+        updateList();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -35,24 +47,20 @@ public class manageRideActivity extends AppCompatActivity {
                  * Add variables you want to pass to the new activity if any
                  *       using intent.putExtra(key, value)
                  * */
-
-                intent.putExtra("Ride", ride);
                 intent.putExtra("rideIndex", "" + i);
                 startActivity(intent);
-                finish();//Finish this activity we want to rendered after an Embarkation Request
+                //finish();//Finish this activity we want to rendered after an Embarkation Request
             }
 
         });
 
 
-        init();
+    }
 
+    private void updateList(){
+        ManageAdapter adapter=new ManageAdapter(this, rides, username);
+        listView.setAdapter(adapter);
     }
 
 
-
-    private void init() {
-        Intent intent=getIntent();
-        username = intent.getStringExtra("username");
-    }
 }
