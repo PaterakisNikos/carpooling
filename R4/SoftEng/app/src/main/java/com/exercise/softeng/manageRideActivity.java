@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class manageRideActivity extends AppCompatActivity implements RenderListener{
@@ -26,6 +28,7 @@ public class manageRideActivity extends AppCompatActivity implements RenderListe
 
         Intent intent=getIntent();
         username = intent.getStringExtra("username");
+        //Toast.makeText(this, username, Toast.LENGTH_SHORT).show();
 
         listView = findViewById(R.id.listView);
 
@@ -68,7 +71,10 @@ public class manageRideActivity extends AppCompatActivity implements RenderListe
     }
 
     public void CREATE_RIDE(View view){
-        Intent intent = new Intent(manageRideActivity.this, createRide.class);
+      //  Button btn=findViewById(R.id.btn_newRide);
+
+
+        Intent intent = new Intent(this, createRide.class);
                 /*
                  * Add variables you want to pass to the new activity if any
                  *       using intent.putExtra(key, value)

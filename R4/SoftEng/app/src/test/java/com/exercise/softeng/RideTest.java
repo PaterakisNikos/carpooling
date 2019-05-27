@@ -4,6 +4,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 import org.junit.Test;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import static org.junit.Assert.assertFalse;
@@ -17,7 +18,7 @@ public class RideTest {
 
     /*Arguments that will quarante a successfull creation of Ride*/
     Driver input_driver=new Driver("ElpsyCongroo", "pass", "Bill", "looo", null);
-    RideInfo input_start_info=new RideInfo(true, new LatLng(38.049186, 23.835265), new Date(System.currentTimeMillis()));
+    RideInfo input_start_info=new RideInfo(true, new LatLng(38.049186, 23.835265),  LocalDateTime.now());
     RideInfo input_end_info=new RideInfo(false, new LatLng(37.994053, 23.732459), null);
     double input_price=120.0;
     int input_number_of_passengers=3;

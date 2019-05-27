@@ -3,9 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SoftEng.iml" filepath="$PROJECT_DIR$/SoftEng.iml" />
-      <module fileurl="file://C:\Users\Vasilis\workspace\carpooling\R4\SoftEng\SoftEng.iml" filepath="C:\Users\Vasilis\workspace\carpooling\R4\SoftEng\SoftEng.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../Vasilis/workspace/carpooling/R4/SoftEng/SoftEng.iml" filepath="$PROJECT_DIR$/../../../../../Vasilis/workspace/carpooling/R4/SoftEng/SoftEng.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Vasilis\workspace\carpooling\R4\SoftEng\app\app.iml" filepath="C:\Users\Vasilis\workspace\carpooling\R4\SoftEng\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../../../../Vasilis/workspace/carpooling/R4/SoftEng/app/app.iml" filepath="$PROJECT_DIR$/../../../../../Vasilis/workspace/carpooling/R4/SoftEng/app/app.iml" />
     </modules>
   </component>
 </project>

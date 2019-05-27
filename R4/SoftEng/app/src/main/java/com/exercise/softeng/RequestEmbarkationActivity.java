@@ -3,6 +3,7 @@ package com.exercise.softeng;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -42,15 +43,17 @@ public class RequestEmbarkationActivity extends AppCompatActivity {
             Toast.makeText(this, "Enter the desired address", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        Log.i("DEBUG", address_value);
         LatLng coords= carpoolingSystem.getCoordsFromAddress(this, address_value);
-        carpoolingSystem.CREATE_REQUEST(passenger, ride.ID, coords);
-        /*
+       // carpoolingSystem.CREATE_REQUEST(passenger, ride.ID, coords);
+
         Request new_req=new Request(coords, passenger);
         if(!new_req.creation_successfull()){
             Toast.makeText(this, "Request creation failed!", Toast.LENGTH_SHORT).show();
             return;
         }
-        ride.add_request(new_req);*/
+        ride.add_request(new_req);
         go_back();
     }
 

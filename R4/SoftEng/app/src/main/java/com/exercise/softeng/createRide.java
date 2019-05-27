@@ -93,8 +93,11 @@ public class createRide extends AppCompatActivity {
         END_POSITION=carpoolingSystem.getCoordsFromAddress(this,destination);
         double PRICE=Double.parseDouble(r_cost);
         int passNumber=Integer.parseInt(nop);
+
+        boolean flag=carpoolingSystem.CREATE_RIDE(driver, START_POSITION, END_POSITION, START_TS, END_TS, PRICE, passNumber);
         if(carpoolingSystem.CREATE_RIDE(driver, START_POSITION, END_POSITION, START_TS, END_TS, PRICE, passNumber)){
-            go_back();
+            Toast.makeText(this,""+ flag , Toast.LENGTH_SHORT).show();
+            //go_back();
         }
     }
 

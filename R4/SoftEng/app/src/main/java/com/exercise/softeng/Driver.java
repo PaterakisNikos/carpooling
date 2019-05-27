@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 /**
  * Created by Nikos on 4/18/2019.
  */
+
 public class Driver extends User {
 	
 	public Driver(String username, String password) {

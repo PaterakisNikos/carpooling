@@ -34,6 +34,8 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"></activity>
         <activity android:name=".ManageRequestsActivity"></activity>
+        <activity android:name=".createRide"></activity>
+
     </application>
 
 </manifest>

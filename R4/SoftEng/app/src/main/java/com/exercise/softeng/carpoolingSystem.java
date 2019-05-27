@@ -127,10 +127,10 @@ public class carpoolingSystem {
         Geocoder coder = new Geocoder(context);
         List<Address> addresses;
         try {
-            addresses = coder.getFromLocationName(address,5);
             if (address==null) {
                 return null;
             }
+            addresses = coder.getFromLocationName(address,5);
             Address location=addresses.get(0);
             return new LatLng(location.getLatitude(), location.getLongitude());
         }
