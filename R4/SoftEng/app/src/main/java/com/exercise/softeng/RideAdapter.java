@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -71,19 +72,17 @@ public class RideAdapter extends ArrayAdapter<Ride>{
     }
 
     //Using Stack overflow answer: https://stackoverflow.com/questions/9474121/i-want-to-get-year-month-day-etc-from-java-date-to-compare-with-gregorian-cal
-    private String humanReadableDate(Date date){
-        Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("Europe/Athens"));
-        cal.setTime(date);
+    private String humanReadableDate(LocalDateTime date) {
         String data="";
-        int month=(cal.get(Calendar.MONTH)+1);
-        int day=(cal.get(Calendar.DAY_OF_MONTH)+1);
-        int hour=(cal.get(Calendar.HOUR_OF_DAY));
-        int minutes=(cal.get(Calendar.MINUTE));
+        int month=(date.getMonthValue());
+        int day=(date.getDayOfMonth());
+        int hour=(date.getHour());
+        int minutes=(date.getMinute());
         if(day<10)data+="0"+day+"-";
         else data+=day+"-";
         if(month<10)data+="0"+month+"-";
         else data+=month+"-";
-        data+=cal.get(Calendar.YEAR)+" ";
+        data+=date.getYear()+" ";
         if(hour<10)data+="0"+hour+":";
         else data+=hour+":";
         if(minutes<10)data+="0"+minutes;

@@ -2,7 +2,7 @@ package com.exercise.softeng;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * Created by Vasilis on 4/18/2019.
@@ -19,13 +19,13 @@ public class RideInfo{
 		return position;
 	}
 
-	public Date getTime() {
+	public LocalDateTime getTime() {
 		return time;
 	}
 
-	private Date time;
+	private LocalDateTime time;
 
-	public RideInfo(boolean start, LatLng position, Date time){
+	public RideInfo(boolean start, LatLng position, LocalDateTime time){
 		is_start=start;
 		this.position=position;
 		this.time=time;

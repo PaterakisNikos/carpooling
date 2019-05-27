@@ -58,7 +58,7 @@ public class PayAdapter extends ArrayAdapter<Ride> {
         for (Object[] payment: passenger_payments){
             double pay_ammount=(double)payment[1];
             Ride assosiated= carpoolingSystem.getRide((int)payment[0]);
-            if(assosiated.getDriver().equals(current.getDriver())&&assosiated.getStart().getTime().getTime()==current.getStart().getTime().getTime()){
+            if(assosiated.getDriver().equals(current.getDriver())&&assosiated.getStart().getTime().isEqual(current.getStart().getTime())){
                 if(pay_ammount==0.0)
                     pay_state.setImageResource(ImageResources.CROSS);
                 else

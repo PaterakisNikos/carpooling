@@ -9,6 +9,7 @@ import android.util.Log;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -52,9 +53,9 @@ public class carpoolingSystem {
 
     private static ArrayList<Ride>RIDES=new ArrayList<Ride>(
             Arrays.asList(
-                new Ride(new RideInfo(true, new LatLng(38.0626628, 23.8444135), new Date((long)1559736000*(long)1000)), new RideInfo(false, new LatLng(37.9940805,23.7302467), new Date((long)1559738400*(long)1000)), 5.0, USERS.get(1).getUsername(), 3),//0
-                new Ride(new RideInfo(true, new LatLng(37.9940805,23.7302467), new Date((long)1559746800*(long)1000)), new RideInfo(false, new LatLng(38.0626628, 23.8444135), new Date((long)1559749200*(long)1000)), 5.0, USERS.get(1).getUsername(), 3),//1
-                new Ride(new RideInfo(true, new LatLng(38.0626628, 23.8444135), new Date((long)1558634400 *(long)1000)), new RideInfo(false, new LatLng(38.0277869, 23.7837358), new Date((long)1558635600*(long)1000)), 3.0, USERS.get(5).getUsername(), 2)//2
+                new Ride(new RideInfo(true, new LatLng(38.0626628, 23.8444135), LocalDateTime.of(2019, 6, 5, 12, 0)), new RideInfo(false, new LatLng(37.9940805,23.7302467), LocalDateTime.of(2019, 6, 5, 12, 40)), 5.0, USERS.get(1).getUsername(), 3),//0
+                new Ride(new RideInfo(true, new LatLng(37.9940805,23.7302467), LocalDateTime.of(2019, 6, 5, 15, 0)), new RideInfo(false, new LatLng(38.0626628, 23.8444135), LocalDateTime.of(2019, 6, 5, 15, 40)), 5.0, USERS.get(1).getUsername(), 3),//1
+                new Ride(new RideInfo(true, new LatLng(38.0626628, 23.8444135), LocalDateTime.of(2019, 5, 20, 12, 0)), new RideInfo(false, new LatLng(38.0277869, 23.7837358), LocalDateTime.of(2019, 6, 5, 12, 20)), 3.0, USERS.get(5).getUsername(), 2)//2
             ));
 
 
@@ -87,7 +88,7 @@ public class carpoolingSystem {
     public static Ride[] availableForPay(String passenger){
         List<Ride>temp=new ArrayList<Ride>();
         for(Ride ride: RIDES){
-            if(System.currentTimeMillis()>ride.getEnd().getTime().getTime()){
+            if(LocalDateTime.now().isAfter(ride.getEnd().getTime())){
                 for(Request req: ride.getRequests()) {
                     if (req.getState() == Request.ACCEPTED_REQUEST && req.getPassenger().equals(passenger))
                         temp.add(ride);
@@ -160,7 +161,7 @@ public class carpoolingSystem {
     public static Ride[] getAvailiableRides(String passenger) {
         List<Ride> temp=new ArrayList<Ride>();
         for (Ride ride: RIDES){
-            if(ride.getStart().getTime().getTime()>System.currentTimeMillis()&&!ride.getDriver().equals(passenger)) temp.add(ride);
+            if(ride.getStart().getTime().isAfter(LocalDateTime.now())&&!ride.getDriver().equals(passenger)) temp.add(ride);
         }
         Ride[] data=new Ride[temp.size()];
         int i=0;
@@ -175,7 +176,7 @@ public class carpoolingSystem {
     public static Ride[] getOwnedRides(String driver){
         List<Ride>temp=new ArrayList<Ride>();
         for(Ride ride: RIDES){
-            if(ride.getStart().getTime().getTime()>System.currentTimeMillis()&&ride.getDriver().equals(driver))
+            if(ride.getStart().getTime().isAfter(LocalDateTime.now())&&ride.getDriver().equals(driver))
                 temp.add(ride);
         }
         Ride[]data=new Ride[temp.size()];
@@ -196,7 +197,7 @@ public class carpoolingSystem {
     private static int indexOfRide(Ride ride){
         int i=0;
         for(Ride r: RIDES){
-            if(r.getStart().getTime().getTime()==ride.getStart().getTime().getTime()&&ride.getDriver().equals(r.getDriver())) return i;
+            if(r.getStart().getTime().isEqual(ride.getStart().getTime())&&ride.getDriver().equals(r.getDriver())) return i;
             i++;
         }
         return -1;

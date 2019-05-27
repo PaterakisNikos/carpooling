@@ -2,7 +2,8 @@ package com.exercise.softeng;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
 
 /**
  * Created by Nikos on 4/18/2019.
@@ -17,7 +18,7 @@ public class Driver extends User {
 		super(username, password, firstname, lastname, cards);
 	}
 	
-	public Ride createRide(LatLng start_location, Date start_time, LatLng end_location, double price, int number_of_passengers) {
+	public Ride createRide(LatLng start_location, LocalDateTime start_time, LatLng end_location, double price, int number_of_passengers) {
 		return new Ride(new RideInfo(true, start_location, start_time), new RideInfo(false, end_location, null), price, this.getUsername(), number_of_passengers);
 	}
 	
