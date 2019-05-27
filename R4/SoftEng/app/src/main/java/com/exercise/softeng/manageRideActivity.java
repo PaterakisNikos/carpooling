@@ -66,4 +66,17 @@ public class manageRideActivity extends AppCompatActivity implements RenderListe
     public void re_render() {
         updateList();
     }
+
+    public void CREATE_RIDE(View view){
+        Intent intent = new Intent(manageRideActivity.this, createRide.class);
+                /*
+                 * Add variables you want to pass to the new activity if any
+                 *       using intent.putExtra(key, value)
+                 * */
+        intent.putExtra("driver", username);
+        startActivity(intent);
+        finish();
+    }
+
+
 }
