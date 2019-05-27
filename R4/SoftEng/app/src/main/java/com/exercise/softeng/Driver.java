@@ -18,8 +18,8 @@ public class Driver extends User {
 		super(username, password, firstname, lastname, cards);
 	}
 	
-	public Ride createRide(LatLng start_location, LocalDateTime start_time, LatLng end_location, double price, int number_of_passengers) {
-		return new Ride(new RideInfo(true, start_location, start_time), new RideInfo(false, end_location, null), price, this.getUsername(), number_of_passengers);
+	public Ride createRide(LatLng start_location, LocalDateTime start_time,  LocalDateTime end_time, LatLng end_location, double price, int number_of_passengers) {
+		return new Ride(new RideInfo(true, start_location, start_time), new RideInfo(false, end_location, end_time), price, this.getUsername(), number_of_passengers);
 	}
 	
 }

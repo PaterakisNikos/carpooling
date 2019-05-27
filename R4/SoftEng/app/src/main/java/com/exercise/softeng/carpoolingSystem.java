@@ -204,4 +204,38 @@ public class carpoolingSystem {
     }
 
     public static int PAYMENTS_LENGTH(){return PAYMENTS.size();}
+
+
+    public static boolean CREATE_REQUEST(String passenger, int ID, LatLng coords){
+        for (User user: USERS){
+            if(user.getUsername().equals(passenger)){
+                Passenger pass=(Passenger)user;
+                Request new_request=pass.create_request(coords, getRide(ID));
+                if(new_request.creation_successfull()) {
+                    getRide(ID).add_request(new_request);
+                    return true;
+                }
+                return false;
+            }
+        }
+        return false;
+    }
+
+
+    public static boolean CREATE_RIDE(String driver, LatLng start, LatLng dest, LocalDateTime start_t, LocalDateTime end_t, double price, int accepted_passengers){
+        for(User user: USERS){
+            if(user.getUsername()==driver){
+                Driver driv=(Driver)user;
+                Ride new_ride=driv.createRide(start, start_t, end_t, dest, price, accepted_passengers);
+                if(new_ride.creation_successfull()){
+                    RIDES.add(new_ride);
+                    return true;
+                }
+                return false;
+            }
+        }
+        return false;
+    }
+
+
 }

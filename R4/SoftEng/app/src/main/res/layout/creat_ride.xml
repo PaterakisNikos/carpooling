@@ -81,6 +81,24 @@
             android:gravity="center_horizontal"
             android:inputType="numberSigned"
             android:hint="Ride's cost" />
+
+        <EditText
+            android:id="@+id/editText_num_ofpassengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:inputType="numberSigned"
+            android:hint="Number of passengers" />
+
+        <Button
+            android:id="@+id/btn_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="CREATE_RIDE"
+            android:text="@string/text_CREATE" />
+
     </LinearLayout>
 
 
